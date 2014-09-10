@@ -2,12 +2,14 @@ __author__ = 'Kristin & Kalyani - k&k games'
 
 #import the random number generator
 import random
+from colorama import Fore, Back, Style
 
 
 #make the secret number using random library and 'randomint' option.
 # on the range of 1 to a number representing the difficulty of the game & chosen by the user.
 def make_secret(difficulty):
     return random.randint(1, difficulty)
+
 
 #choose the difficulty of the game which sets the number of guesses the player has
 #and the top of the range from which the secret number os generated
@@ -17,7 +19,7 @@ def choose_difficulty():
 Welcome to Choose a number!
 Let's begin.""")
 
-    user_prompt = raw_input("""
+    user_prompt = raw_input(Fore.BLUE + Style.BRIGHT + """
 Choose a difficulty by typing one of the levels below:
     easy: 4 guesses for a number in 1 - 10
     moderate: 8 guesses for a number in 1 - 50
@@ -35,13 +37,13 @@ Choose a difficulty by typing one of the levels below:
 
 #allows the user to play again
 def play_again():
-    response = raw_input("""
+    response = raw_input(Fore.MAGENTA + """
     Do you want to play again?
     Y or N: """).upper()
     if response == 'Y':
         play()
     else:
-        print 'Thanks for playing!'
+        print Fore.MAGENTA + '\nThanks for playing!'
         exit()
 
 
