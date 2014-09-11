@@ -1,4 +1,4 @@
-__author__ = 'student'
+__author__ = 'Kristin'
 
 
 import math
