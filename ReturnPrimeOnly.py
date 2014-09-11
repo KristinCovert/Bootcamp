@@ -4,31 +4,39 @@ __author__ = 'student'
 import math
 
 numbers = input('give me a number ')
-#numbers2 = (numbers + 1)
 primes = [2, ]
 
-#this is the set of numbers up to a user defined end
-for number in range(1, numbers + 1):
-    #this is the set of numbers to divide into the user defined numbers
+#this is the set of numbers up to a user defined end, but we can step by 2 because all even numbers are not prime
+for number in range(3, numbers + 1):
+    differences = []
+    prime = number > 0
+#this is the set of numbers to divide into the user defined numbers
     for test in range(2, number):
-        # this formula takes the number divided by the test to create a quotient
-        # but, it makes the number and test variables floats so that we can return an number with decimals
-        # if the quotient minus the floor or rounded down number is decimal it is a prime
-        quotient = float(number) / float(test)
-        difference = quotient - math.floor(quotient)
+        # the following formula takes the number (floated to a decimal) divided by the test(same) to create a quotient
+        # if the quotient minus its floor (rounded down) is decimal it could be prime.
+        print (number, test)
+        #quotient = float(number) / float(test)
+        #difference = quotient - math.floor(quotient)
+        #differences.append(difference)
+        #if all(differences) >0:
+            #primes.append(number)
+        #if 0 in differences:
 
-        # if the difference is a whole number then it is not a prime and the following send the program back up to the neginning
-        if difference == 0:
-            break
-        # here the decimal is registered as a prime and the break stops it from repeating with repeated tests
-        else:
-            primes.append(number)
-            break
-        #to-do make the list fabulous!
-        #print (str(number), str(quotient), str(difference)) - a test to see how the numbers are interacting in the loops
 
-for i in primes:
-    print(i)
+        #print (number, test, differences)
+        # if the result is 0 it is not a prime
+        #if difference == 0:
+            #break
+        #elif difference != 0:
+
+            #print (number, test, difference)
+            #if all(differences) > 0:
+                #print (number)
+           # break
+
+        #primes.append(number)
+#for i in primes:
+    #print(i)
 
 
 
