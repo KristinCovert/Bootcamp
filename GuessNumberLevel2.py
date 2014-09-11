@@ -10,16 +10,16 @@ def make_secret(difficulty):
 
 def choose_difficulty():
 
-    print ("""Welcome to Choose a number!
+    print ("""
+Welcome to Choose a number!
 Let's begin.""")
 
     user_prompt = raw_input("""
-
-Choose a difficulty:
-
-easy: 4 guesses for a number in 1 - 10
-moderate: 10 guesses for a number in 1 - 50
-difficult: 20 guesses for a number in 1 - 100: """)
+Choose a difficulty by typing the difficulty level:
+    easy: 4 guesses for a number in 1 - 10
+    moderate: 10 guesses for a number in 1 - 50
+    difficult: 20 guesses for a number in 1 - 100
+    : """)
 
     difficulty_options = {'easy': (4, 10), 'moderate': (10, 50), 'difficult': (20, 100)}
 
@@ -47,7 +47,7 @@ def user_guess():
 def play():
 
     (guess_range, secret) = choose_difficulty()
-    print "{} is the secret and {} is the range".format(secret, guess_range)
+    #print "{} is the secret and {} is the range".format(secret, guess_range)
     counter = 0
 
     while counter < guess_range:
@@ -64,8 +64,7 @@ def play():
             print "You got it!"
             break
     else:
-        print("you are out of guesses")
+        print("You are out of guesses and {} is the secret".format(secret))
 
-#choose_difficulty()
 play()
 play_again()
