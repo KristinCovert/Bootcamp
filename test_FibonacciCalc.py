@@ -9,10 +9,10 @@ class test_fibonacci(unittest.TestCase):
         self.assertEqual(fibonacciCalc.fibonacci(5), [1, 2, 3, 5, 8])
 
     def test_fibonacci_length(self):
-        x = 10
-        result = fibonacciCalc.fibonacci(x)
+        rt = 10
+        result = fibonacciCalc.fibonacci(rt)
         l = len(result)
-        self.assertEqual(x, l)
+        self.assertEqual(rt, l)
 
 
 if __name__ == '__main__':
