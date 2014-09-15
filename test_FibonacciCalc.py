@@ -1,12 +1,18 @@
 __author__ = 'student'
 
 import unittest
-import HibinachiCalc
+import fibonacciCalc
 
 
-class MyTestCase(unittest.TestCase):
+class test_fibonacci(unittest.TestCase):
     def test_fibonacci(self):
-        self.assertEqual(HibinachiCalc.fibonacci(), [1, 2, 3, 5, 8])
+        self.assertEqual(fibonacciCalc.fibonacci(5), [1, 2, 3, 5, 8])
+
+    def test_fibonacci_length(self):
+        x = 10
+        result = fibonacciCalc.fibonacci(x)
+        l = len(result)
+        self.assertEqual(x, l)
 
 
 if __name__ == '__main__':
