@@ -2,11 +2,12 @@ __author__ = 'Kristin & Kalyani - k&k games'
 
 #import the random number generator
 import random
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 
 
 #make the secret number using random library and 'randomint' option.
-# on the range of 1 to a number representing the difficulty of the game & chosen by the user.
+# on the range of 1 to a number representing the difficulty of the game
+# & chosen by the user.
 def make_secret(difficulty):
     return random.randint(1, difficulty)
 
