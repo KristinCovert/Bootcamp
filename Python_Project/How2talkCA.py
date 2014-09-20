@@ -111,10 +111,6 @@ class CASpeakTranslate(story):
 
 ca_speak = CAspeakTranslate(story)
 
-
-
-
-
 print CAspeak
 
 #TODO compare stories 1 vs 2 after play again to see change in CAness
