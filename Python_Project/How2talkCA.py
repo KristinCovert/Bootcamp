@@ -9,17 +9,20 @@ from nltk.tokenize import RegexpTokenizer
 #Welcome to translator & choice of how to put in text to translate
 def ca_speak_method():
     print """\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n"""
-    time.sleep(3)
+    time.sleep(2.5)
     print """So Dude, to fully talk like a true Californian you must, like, embrace your inner slang mojo.\n"""
-    time.sleep(4)
-    choice = input("""\nSo how you gonna pour your soul out?
+    time.sleep(5)
+    choice = input("""\nSo how you gonna pour your mojo out?
+    We'll help by translating your words into california-ness! Oh yeah, bro!
     \n\tYou can totally
     1: write your own story or
     2: follow some prompts to make a story?
     1 or 2 dude? """)
     return choice
 
-#text input
+#text input, two methods
+
+
 def make_story():
 
     x = ca_speak_method()
@@ -42,10 +45,13 @@ def make_story():
     Describe the carcass or how you feel. I stumble on ''')
         question5 = raw_input('''\nWrap up your day and tell us what you do.''')
 
-        text = str("The beach is " + question1 + 'I see' + question2 + "As I " + question3 + 'I stumble on' + question4 + question5)
+        text = str("The beach is " + question1 + 'I see' + question2 +
+                   "As I " + question3 + 'I stumble on' + question4 + question5)
         return text
-
 story = make_story()
+
+#class cookie cutter to turn the story into a translated text
+
 
 class CASpeakTranslate(story):
     def __init__(self):
@@ -54,8 +60,6 @@ class CASpeakTranslate(story):
         self.add_ins = [', so, ', ', like, ', ', OMG, ']
         self.score = 0
         self.locations = []
-        self.joined_text = joined_text
-        self.translated_story = translated_story
 
 #take story and split it into a list but don't undo contractions using NLTK
     def deconstruct_text(self, story):
@@ -73,7 +77,7 @@ class CASpeakTranslate(story):
                     text_split[text_split.index(word)] = slang_choice
                     return text_split
 
-#create random locations to replace with add-in words - combine with below?
+#create random locations to replace with add-in words
     def random_location(self, text_split, locations):
         count = 0
         while count < 10:
@@ -82,7 +86,7 @@ class CASpeakTranslate(story):
             count += 1
         return locations
 
-#take random location of words by their index in location and insert add-ins
+#use locations made above to insert add-ins
     def random_add(self, text_split):
         for location in self.locations:
             add = random.choice(self.add_ins)
@@ -99,17 +103,19 @@ class CASpeakTranslate(story):
 
 #join the text
     def join_text(self, text_split):
-        self.joined_text = ' '.join(text_split)
+        joined_text = ' '.join(text_split)
+        return joined_text
 
+#fix the punctuation
     def fix_punct(self, joined_text):
-        fix_1 = re.sub(r"(\s+\.)", ".", joined_text)
-        fix_2 = re.sub(r"(\s+\!)", "!", fix_1)
-        fix_3 = re.sub(r"(\s+\,)", ",", fix_2)
+        fix_1 = re.sub(r"(\s+\.)", ".",joined_text)
+        fix_2 = re.sub(r"(\s+!)", "!", fix_1)
+        fix_3 = re.sub(r"(\s+,)", ",", fix_2)
         fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
-        done = re.sub(r"(\s+\:)", ";", fix_4)
+        done = re.sub(r"(\s+:)", ";", fix_4)
         return done
 
-ca_speak = CASpeakTranslate(story)
+ca_speak = CASpeakTranslate()
 
 print ca_speak
 
