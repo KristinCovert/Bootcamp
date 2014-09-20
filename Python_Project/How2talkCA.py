@@ -2,10 +2,11 @@ __author__ = 'Kristin'
 
 import random
 import time
+import re
 from nltk.tokenize import RegexpTokenizer
 
 
-#TODO make a place to name each story by a person's name - or way to give the stories names
+#Welcome to translator & choice of how to put in text to translate
 def ca_speak_method():
     print """\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n"""
     time.sleep(3)
@@ -18,7 +19,7 @@ def ca_speak_method():
     1 or 2 dude? """)
     return choice
 
-
+#text input
 def make_story():
 
     x = ca_speak_method()
@@ -44,9 +45,7 @@ def make_story():
         text = str("The beach is " + question1 + 'I see' + question2 + "As I " + question3 + 'I stumble on' + question4 + question5)
         return text
 
-
 story = make_story()
-
 
 class CASpeakTranslate(story):
     def __init__(self):
@@ -55,12 +54,16 @@ class CASpeakTranslate(story):
         self.add_ins = [', so, ', ', like, ', ', OMG, ']
         self.score = 0
         self.locations = []
+        self.joined_text = joined_text
+        self.translated_story = translated_story
 
+#take story and split it into a list but don't undo contractions using NLTK
     def deconstruct_text(self, story):
         text_split = RegexpTokenizer("[\w']+|[.,!?;:-]")
         print(text_split.tokenize(story))
         return text_split
 
+#replace words with slang from dictionary (expand to reading big excel file)
     def replace_word_slang(self, text_split):
         for word in text_split:
             for slang in self.slang_dict:
@@ -70,6 +73,7 @@ class CASpeakTranslate(story):
                     text_split[text_split.index(word)] = slang_choice
                     return text_split
 
+#create random locations to replace with add-in words - combine with below?
     def random_location(self, text_split, locations):
         count = 0
         while count < 10:
@@ -77,15 +81,15 @@ class CASpeakTranslate(story):
             locations.append(location)
             count += 1
         return locations
-#Here I use the random locations from the locations list to replace the location with a
-#random selection from the add in list. I want this to iterate through the list of
-#locations. So this is swapping not inserting.
+
+#take random location of words by their index in location and insert add-ins
     def random_add(self, text_split):
         for location in self.locations:
             add = random.choice(self.add_ins)
             text_split.insert(location, add)
         return text_split
 
+#add in Dude after each !
     def add_in_dude(self, text_split):
         for element in text_split:
             if element == '!':
@@ -93,31 +97,28 @@ class CASpeakTranslate(story):
                 text_split.remove('!')
         return text_split
 
+#join the text
+    def join_text(self, text_split):
+        self.joined_text = ' '.join(text_split)
 
- CAspeakTranslate = ' '.join(text_split)
- print CAspeakTranslate
-#
-#
-#
-# #take a random location and put in Dude after a sentence and So before a sentence
-#
-#
-# def random_add():
-#         if place[0].isupper():
-#             text_split.insert(text_split.index(place), 'So')
-#
-# #within class call all methods
-# #deconstruct_text(self.story)
-# #replace_word_slang(self.story)
-# #print replace_word_slang(self.story)
-# #random_add()
-# # print(text_split)
-#
-# #text_split join - at very end take nothing and join it together ''.join(text_split)
-#
-# # def make_CAspeak():
-# #     prompts to get text
-# #     return CAspeak(story)
+    def fix_punct(self, joined_text):
+        fix_1 = re.sub(r"(\s+\.)", ".", joined_text)
+        fix_2 = re.sub(r"(\s+\!)", "!", fix_1)
+        fix_3 = re.sub(r"(\s+\,)", ",", fix_2)
+        fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
+        done = re.sub(r"(\s+\:)", ";", fix_4)
+        return done
+
+ca_speak = CAspeakTranslate(story)
+
+
+
+
+
+print CAspeak
+
+#TODO compare stories 1 vs 2 after play again to see change in CAness
+
 # # #file_open = open(pronouns.txt)
 #
 # #slang_dict.keys creates list of keys
