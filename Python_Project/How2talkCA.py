@@ -109,9 +109,9 @@ class CASpeakTranslate(story):
         done = re.sub(r"(\s+\:)", ";", fix_4)
         return done
 
-ca_speak = CAspeakTranslate(story)
+ca_speak = CASpeakTranslate(story)
 
-print CAspeak
+print ca_speak
 
 #TODO compare stories 1 vs 2 after play again to see change in CAness
 
