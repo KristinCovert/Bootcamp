@@ -9,9 +9,9 @@ from nltk.tokenize import RegexpTokenizer
 #Welcome to translator & choice of how to put in text to translate
 def ca_speak_method():
     print """\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n"""
-    #time.sleep(2.5)
+    time.sleep(2.5)
     print """So Dude, to fully talk like a true Californian you must, like, embrace your inner slang mojo.\n"""
-    #time.sleep(5)
+    time.sleep(5)
     choice = input("""\nSo how you gonna pour your mojo out?
     We'll help by translating your words into california-ness! Oh yeah, bro!
     \n\tYou can totally
@@ -129,7 +129,6 @@ ca_speak.join_text()
 ca_speak.fix_punct()
 print ca_speak.translated_story
 
-#print ca_speak
 
 #TODO compare stories 1 vs 2 after play again to see change in CAness
 
