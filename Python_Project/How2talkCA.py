@@ -113,7 +113,9 @@ class CASpeakTranslate():
         fix_2 = re.sub(r"(\s+!)", "!", fix_1)
         fix_3 = re.sub(r"(\s+,)", ",", fix_2)
         fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
-        self.translated_story = re.sub(r"(\s+:)", ";", fix_4)
+        fix_5 = re.sub(r"(\s+,.)", ".", fix_4)
+        fix_6 = re.sub(r"(\s+,,)", ",", fix_5)
+        self.translated_story = re.sub(r"(\s+:)", ";", fix_6)
         return self.translated_story
 
 story = ca_speak_method()
