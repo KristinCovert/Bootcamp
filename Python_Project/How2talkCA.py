@@ -72,7 +72,7 @@ class CASpeakTranslate():
         for word in self.text_split:
             for slang in slang_dict:
                 if word == slang:
-                    print (word, random.choice(slang_dict[slang]))
+                    #print (word, random.choice(slang_dict[slang]))
                     slang_choice = random.choice(slang_dict[slang])
                     self.text_split[self.text_split.index(word)] = slang_choice
                     return self.text_split
@@ -108,24 +108,24 @@ class CASpeakTranslate():
         return self.joined_text
 
 #fix the punctuation
-    def fix_punct(self, joined_text):
-        fix_1 = re.sub(r"(\s+\.)", ".", joined_text)
+    def fix_punct(self):
+        fix_1 = re.sub(r"(\s+\.)", ".", self.joined_text)
         fix_2 = re.sub(r"(\s+!)", "!", fix_1)
         fix_3 = re.sub(r"(\s+,)", ",", fix_2)
         fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
-        translated_story = re.sub(r"(\s+:)", ";", fix_4)
-        return translated_story
+        self.translated_story = re.sub(r"(\s+:)", ";", fix_4)
+        return self.translated_story
 
 story = ca_speak_method()
 ca_speak = CASpeakTranslate(story)
-ca_speak.deconstruct_text(story)
-ca_speak.replace_word_slang(ca_speak.text_split)
-ca_speak.random_location(ca_speak.text_split, ca_speak.locations)
-ca_speak.random_add(ca_speak.text_split)
+ca_speak.deconstruct_text()
+ca_speak.replace_word_slang()
+ca_speak.random_location()
+ca_speak.random_add()
 #ca_speak.add_in_dude(story)
-ca_speak.join_text(ca_speak.text_split)
-ca_speak.fix_punct(ca_speak.text_split)
-print ca_speak
+ca_speak.join_text()
+ca_speak.fix_punct()
+print ca_speak.translated_story
 
 #print ca_speak
 
