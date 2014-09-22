@@ -53,12 +53,9 @@ story = make_story()
 #class cookie cutter to turn the story into a translated text
 
 
-class CASpeakTranslate(story):
-    def __init__(self):
+class CASpeakTranslate():
+    def __init__(self, story):
         self.story = story
-        self.slang_dict = {'really': ['hella', 'totally', 'fully'], 'gross': ['grody', 'gag me']}
-        self.add_ins = [', so, ', ', like, ', ', OMG, ']
-        self.score = 0
         self.locations = []
 
 #take story and split it into a list but don't undo contractions using NLTK
@@ -69,11 +66,12 @@ class CASpeakTranslate(story):
 
 #replace words with slang from dictionary (expand to reading big excel file)
     def replace_word_slang(self, text_split):
+        slang_dict = {'really': ['hella', 'totally', 'fully'], 'gross': ['grody', 'gag me']}
         for word in text_split:
-            for slang in self.slang_dict:
+            for slang in slang_dict:
                 if word == slang:
-                    print (word, random.choice(self.slang_dict[slang]))
-                    slang_choice = random.choice(self.slang_dict[slang])
+                    print (word, random.choice(slang_dict[slang]))
+                    slang_choice = random.choice(slang_dict[slang])
                     text_split[text_split.index(word)] = slang_choice
                     return text_split
 
@@ -88,8 +86,9 @@ class CASpeakTranslate(story):
 
 #use locations made above to insert add-ins
     def random_add(self, text_split):
+        add_ins = [', so, ', ', like, ', ', OMG, ']
         for location in self.locations:
-            add = random.choice(self.add_ins)
+            add = random.choice(add_ins)
             text_split.insert(location, add)
         return text_split
 
@@ -108,7 +107,7 @@ class CASpeakTranslate(story):
 
 #fix the punctuation
     def fix_punct(self, joined_text):
-        fix_1 = re.sub(r"(\s+\.)", ".",joined_text)
+        fix_1 = re.sub(r"(\s+\.)", ".", joined_text)
         fix_2 = re.sub(r"(\s+!)", "!", fix_1)
         fix_3 = re.sub(r"(\s+,)", ",", fix_2)
         fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
