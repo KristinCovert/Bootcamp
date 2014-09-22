@@ -9,32 +9,31 @@ from nltk.tokenize import RegexpTokenizer
 #Welcome to translator & choice of how to put in text to translate
 def ca_speak_method():
     print """\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n"""
-    time.sleep(2.5)
+    #time.sleep(2.5)
     print """So Dude, to fully talk like a true Californian you must, like, embrace your inner slang mojo.\n"""
-    time.sleep(5)
+    #time.sleep(5)
     choice = input("""\nSo how you gonna pour your mojo out?
     We'll help by translating your words into california-ness! Oh yeah, bro!
     \n\tYou can totally
     1: write your own story or
     2: follow some prompts to make a story?
     1 or 2 dude? """)
-    return choice
+    make_story(choice)
+
 
 #text input, two methods
 
 
-def make_story():
+def make_story(choice):
 
-    x = ca_speak_method()
-
-    if x == 1:
-        text = raw_input("""\nCool Dude! Then tell us your story!
+    if choice == 1:
+        story = raw_input("""\nCool Dude! Then tell us your story!
     We need, like, 5 - 10 sentences.
     And go ahead, use that CA slang you already know!
     We might add a function to assess your california-ness!\n""")
-        return text
+        return story
 
-    if x == 2:
+    if choice == 2:
         question1 = raw_input('''\nYou are at the beach.
     What does it look like? \nThe beach is ''')
         question2 = raw_input('''\nThere are some hotty surfers riding waves.
@@ -45,11 +44,11 @@ def make_story():
     Describe the carcass or how you feel. I stumble on ''')
         question5 = raw_input('''\nWrap up your day and tell us what you do.''')
 
-        text = str("The beach is " + question1 + 'I see' + question2 +
+        story = str("The beach is " + question1 + 'I see' + question2 +
                    "As I " + question3 + 'I stumble on' + question4 + question5)
-        return text
-story = make_story()
+        return story
 
+ca_speak_method()
 #class cookie cutter to turn the story into a translated text
 
 
@@ -114,9 +113,11 @@ class CASpeakTranslate():
         done = re.sub(r"(\s+:)", ";", fix_4)
         return done
 
-ca_speak = CASpeakTranslate()
 
-print ca_speak
+ca_speak = CASpeakTranslate(story)
+ca_speak.deconstruct_text(story)
+
+#print ca_speak
 
 #TODO compare stories 1 vs 2 after play again to see change in CAness
 
