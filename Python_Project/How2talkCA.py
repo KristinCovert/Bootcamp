@@ -18,7 +18,7 @@ def ca_speak_method():
     1: write your own story or
     2: follow some prompts to make a story?
     1 or 2 dude? """)
-    make_story(choice)
+    return make_story(choice)
 
 
 #text input, two methods
@@ -27,11 +27,11 @@ def ca_speak_method():
 def make_story(choice):
 
     if choice == 1:
-        story = raw_input("""\nCool Dude! Then tell us your story!
+        text = raw_input("""\nCool Dude! Then tell us your story!
     We need, like, 5 - 10 sentences.
     And go ahead, use that CA slang you already know!
     We might add a function to assess your california-ness!\n""")
-        return story
+        return text
 
     if choice == 2:
         question1 = raw_input('''\nYou are at the beach.
@@ -44,11 +44,11 @@ def make_story(choice):
     Describe the carcass or how you feel. I stumble on ''')
         question5 = raw_input('''\nWrap up your day and tell us what you do.''')
 
-        story = str("The beach is " + question1 + 'I see' + question2 +
+        text = str("The beach is " + question1 + 'I see' + question2 +
                    "As I " + question3 + 'I stumble on' + question4 + question5)
-        return story
+        return text
 
-ca_speak_method()
+
 #class cookie cutter to turn the story into a translated text
 
 
@@ -77,7 +77,7 @@ class CASpeakTranslate():
 #create random locations to replace with add-in words
     def random_location(self, text_split, locations):
         count = 0
-        while count < 10:
+        while count < 5:
             location = random.randint(1, len(text_split))
             locations.append(location)
             count += 1
@@ -113,9 +113,16 @@ class CASpeakTranslate():
         done = re.sub(r"(\s+:)", ";", fix_4)
         return done
 
-
+story = ca_speak_method()
 ca_speak = CASpeakTranslate(story)
 ca_speak.deconstruct_text(story)
+ca_speak.replace_word_slang(story)
+ca_speak.random_location(story, locations=[])
+ca_speak.random_add(story)
+ca_speak.add_in_dude(story)
+ca_speak.join_text(story)
+ca_speak.fix_punct(story)
+print ca_speak
 
 #print ca_speak
 
