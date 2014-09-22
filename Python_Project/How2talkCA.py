@@ -88,19 +88,19 @@ class CASpeakTranslate():
 
 #use locations made above to insert add-ins
     def random_add(self):
-        add_ins = [', so, ', ', like, ', ', OMG, ']
+        add_ins = ['so,', 'like,', 'OMG,']
         for location in self.locations:
             add = random.choice(add_ins)
             self.text_split.insert(location, add)
         return self.text_split
 
 #add in Dude after each !
-    # def add_in_dude(self, text_split):
-    #     for element in text_split:
-    #         if element == '!':
-    #             text_split.insert(text_split.index(element), ', Dude!')
-    #             text_split.remove('!')
-    #     return self.text_split
+    def add_in_dude(self):
+        for element in self.text_split:
+            if element == '!':
+                self.text_split.insert(self.text_split.index(element), ', Dude!')
+                self.text_split.remove('!')
+        return self.text_split
 
 #join the text
     def join_text(self):
@@ -122,7 +122,7 @@ ca_speak.deconstruct_text()
 ca_speak.replace_word_slang()
 ca_speak.random_location()
 ca_speak.random_add()
-#ca_speak.add_in_dude(story)
+ca_speak.add_in_dude()
 ca_speak.join_text()
 ca_speak.fix_punct()
 print ca_speak.translated_story
