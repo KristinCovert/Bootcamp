@@ -44,8 +44,8 @@ def make_story(choice):
     Describe the carcass or how you feel. I stumble on ''')
         question5 = raw_input('''\nWrap up your day and tell us what you do.''')
 
-        text = str("The beach is " + question1 + 'I see' + question2 +
-                   "As I " + question3 + 'I stumble on' + question4 + question5)
+        text = str(" The beach is " + question1 + ' I see' + question2 +
+                   " As I " + question3 + ' I stumble on' + question4 + question5)
         return text
 
 
