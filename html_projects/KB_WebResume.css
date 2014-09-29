@@ -1,12 +1,15 @@
-h1 {
-    position: center
+body {
+    text-align: center;
 }
-
-h2 {
-    position: center
+.icons-container {
+    text-align: none;
 }
+.icons img {
+    padding-left: 20px;
+    padding-right: 20px
 
-#icons {
-    position: center
-
+.school p {
+    padding: 5px;
+    border: 2px solid #000000;
+    width: 175px;
 }
