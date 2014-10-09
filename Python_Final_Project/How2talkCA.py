@@ -8,9 +8,9 @@ from nltk.tokenize import RegexpTokenizer
 
 #Welcome to translator & choice of how to put in text to translate
 def ca_speak_method():
-    print """\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n"""
+    print("""\nOh my god, you are like, totally awesome 'cause you want to be more californian.\n""")
     time.sleep(2.5)
-    print """So Dude, to fully talk like a true Californian you must, like, embrace your inner slang mojo.\n"""
+    print ("""So Dude, to fully talk like a true Californian you must, like, embrace your inner slang mojo.\n""")
     time.sleep(5)
     choice = input("""\nSo how you gonna pour your mojo out?
     We'll help by translating your words into california-ness! Oh yeah, bro!
@@ -27,22 +27,22 @@ def ca_speak_method():
 def make_story(choice):
 
     if choice == 1:
-        text = raw_input("""\nCool Dude! Then tell us your story!
+        text = input("""\nCool Dude! Then tell us your story!
     We need, like, 5 - 10 sentences.
     And go ahead, use that CA slang you already know!
     We might add a function to assess your california-ness!\n""")
         return text
 
     if choice == 2:
-        question1 = raw_input('''\nYou are at the beach.
+        question1 = input('''\nYou are at the beach.
     What does it look like? \nThe beach is ''')
-        question2 = raw_input('''\nThere are some hotty surfers riding waves.
+        question2 = input('''\nThere are some hotty surfers riding waves.
     Describe them to us. I see ''')
-        question3 = raw_input('''\nYou are now taking a walk on the beach.
+        question3 = input('''\nYou are now taking a walk on the beach.
     Describe your walk and what you see. As I ''')
-        question4 = raw_input('''\nThere is dead jelly fish on the sand as you walk.
+        question4 = input('''\nThere is dead jelly fish on the sand as you walk.
     Describe the carcass or how you feel. I stumble on ''')
-        question5 = raw_input('''\nWrap up your day and tell us what you do.''')
+        question5 = input('''\nWrap up your day and tell us what you do.''')
 
         text = str(" The beach is " + question1 + ' I see' + question2 +
                    " As I " + question3 + ' I stumble on' + question4 + question5)
@@ -110,11 +110,11 @@ class CASpeakTranslate():
 #fix the punctuation
     def fix_punct(self):
         fix_1 = re.sub(r"(\s+\.)", ".", self.joined_text)
-        fix_2 = re.sub(r"(\s+!)", "!", fix_1)
-        fix_3 = re.sub(r"(\s+,)", ",", fix_2)
+        fix_2 = re.sub(r"(\s+\\!)", "!", fix_1)
+        fix_3 = re.sub(r"(\s+\\,)", ",", fix_2)
         fix_4 = re.sub(r"(\s+\?)", "?", fix_3)
-        fix_5 = re.sub(r"(\s+,.)", ".", fix_4)
-        fix_6 = re.sub(r"(\s+,,)", ",", fix_5)
+        fix_5 = re.sub(r"(\s+\\,.)", ".", fix_4)
+        fix_6 = re.sub(r"(\s+\\,\\,)", ",", fix_5)
         self.translated_story = re.sub(r"(\s+:)", ";", fix_6)
         return self.translated_story
 
@@ -127,7 +127,7 @@ ca_speak.random_add()
 ca_speak.add_in_dude()
 ca_speak.join_text()
 ca_speak.fix_punct()
-print ca_speak.translated_story
+print (ca_speak.translated_story)
 
 
 #TODO compare stories 1 vs 2 after play again to see change in CAness
