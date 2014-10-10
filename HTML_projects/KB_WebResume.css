@@ -1,0 +1,54 @@
+body {
+    text-align: center;
+}
+.icons-container {
+    text-align: none;
+}
+.icons img {
+    padding-left: 20px;
+    padding-right: 20px
+}
+.desc-about {
+    width: 600px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.desc-about p {
+    max-width: 600px;
+}
+.school-container {
+    text-align: none;
+}
+.school {
+    padding: 5px;
+    width: 250px;
+    display: inline-block;
+    vertical-align:top;
+}
+.school p {
+    width: 200px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+#center-school {
+    border-right: 2px solid #000000;
+    border-left: 2px solid #000000;
+}
+
+.white-space-bar {
+        padding-top: 100px;
+        padding-bottom: 100px;
+}
+
+#codeguildBW img:hover {
+      background-image: url('/pictures/PDX_CodeGuild.png');
+}
+
+@media (max-width: 524px){
+    #center-school {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: none;
+    border-left: none;
+}}
