@@ -107,7 +107,7 @@ body {
 }
 
 /* --------- COLLAPSIBLE PANELS ----------*/
-#brain {
+.expand-icon {
     padding-top: 5px;
 }
 
@@ -124,7 +124,7 @@ body {
     cursor:pointer;
     min-height:70px;
     clear:both;
-    background-color:#E5E5E5;
+    background-color:#e5e5e5;
     position:relative;
 }
 .expandable-panel-heading:hover {
@@ -137,7 +137,7 @@ body {
     vertical-align: middle;
 }
 .expandable-panel-content {
-    padding:0 15px 0 15px;
+    padding:0 5px 0 0;
     margin-top:-999px;
 }
 .expandable-panel-content p {
@@ -153,7 +153,7 @@ body {
     width:20px;
     height:20px;
     position:absolute;
-    background-image:url(icon-close-open.png);
+    background-image:url(https://localhost/pictures/icon-close-open.png);
     right:15px;
 }
 .expandable-panel-content img {
