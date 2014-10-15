@@ -37,13 +37,18 @@ body {
 
 
 .desc-about {
-    width: 600px;
+    max-width: 600px;
     margin-left: auto;
     margin-right:auto;
 }
 
 .desc-about p {
     max-width: 600px;
+}
+
+#branch {
+   max-width: 700px;
+   max-height: 400px;
 }
 .school-container {
     text-align: none;
@@ -73,7 +78,10 @@ body {
       background-image: url('/pictures/PDX_CodeGuild.png');
 }
 
-.about-icon-2 img
+.about-icon {
+    width: 65px;
+    height: 65px;
+}
 
 @media (max-width: 524px){
     #center-school {
@@ -82,3 +90,76 @@ body {
     border-right: none;
     border-left: none;
 }}
+
+/*css for expandable panels*/
+
+.container ul, li {
+    margin:0px;
+    padding:0px;
+    font-size:13px;
+    text-align: left;
+}
+
+#container {
+    max-width:400px;
+    margin:auto;
+    margin-top:50px;
+}
+
+/* --------- COLLAPSIBLE PANELS ----------*/
+#brain {
+    padding-top: 5px;
+}
+
+.expandable-panel {
+    width:100%;
+    position:relative;
+    min-height:50px;
+    overflow:auto;
+    margin-bottom: 20px;
+    border:1px solid #999;
+}
+.expandable-panel-heading {
+    width:100%;
+    cursor:pointer;
+    min-height:70px;
+    clear:both;
+    background-color:#E5E5E5;
+    position:relative;
+}
+.expandable-panel-heading:hover {
+    color:#666;
+}
+.expandable-panel-heading h2 {
+    padding:5px 10px 9px 15px;
+    font-size:16px;
+    line-height:20px;
+    vertical-align: middle;
+}
+.expandable-panel-content {
+    padding:0 15px 0 15px;
+    margin-top:-999px;
+}
+.expandable-panel-content p {
+    padding:4px 0 6px 0;
+}
+.expandable-panel-content p:first-child  {
+    padding-top:10px;
+}
+.expandable-panel-content p:last-child {
+    padding-bottom:15px;
+}
+.icon-close-open {
+    width:20px;
+    height:20px;
+    position:absolute;
+    background-image:url(icon-close-open.png);
+    right:15px;
+}
+.expandable-panel-content img {
+    float:right;
+    padding-left:12px;
+}
+.header-active {
+    background-color:#D0D7F3;
+}
