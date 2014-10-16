@@ -20,7 +20,8 @@ $(document).ready(function (){
     }
 
     function spin () {
-        spinLarge()
+
+        spinLarge();
         var smallAngle = 0;
         return setInterval(function () {
             smallAngle += 3;
@@ -34,7 +35,8 @@ $(document).ready(function (){
             spin();
         },
         function() {
-                $("SM_cog", "LG_cog").rotate(0);
+            $("SM_cog").addClass('stop');
+//            $("SM_cog", "LG_cog").rotate({angle:0, callback:function(){ false; }});
       });
 
     $("#codeguildBW").hover(
