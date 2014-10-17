@@ -20,7 +20,6 @@ $(document).ready(function (){
     }
 
     function spin () {
-
         spinLarge();
         var smallAngle = 0;
         return setInterval(function () {
@@ -35,9 +34,19 @@ $(document).ready(function (){
             spin();
         },
         function() {
-            $("SM_cog").addClass('stop');
+//            $("SM_cog").addClass('stop');
 //            $("SM_cog", "LG_cog").rotate({angle:0, callback:function(){ false; }});
       });
+
+    $( "#flw-res" ).click(function() {
+        $( "#flw-res" ).animate({
+            width: "-toggle",
+            height: "-toggle"
+        }, 2000, function() {
+        // Animation complete.
+        });
+    });
+
 
     $("#codeguildBW").hover(
         function() {
