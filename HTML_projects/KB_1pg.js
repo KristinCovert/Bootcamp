@@ -11,32 +11,41 @@ $(document).ready(function (){
             $(this).attr({src: "/pictures/AboutIcon.jpeg"})
     });
 
-    function spinLarge () {
-        var angle = 0;
-        return setInterval(function(){
-            angle-=3;
-            $("#LG_cog").rotate(angle);
-            },50);
+    function spin_small () {
+        $('#SM_cog').tween({
+            rotate:{
+                start: 0,
+                stop: 360,
+                time: 0,
+                duration: 10,
+                effect:'easeInOut'
+            }
+        });
+    $.play();
     }
 
-    function spin () {
-        spinLarge();
-        var smallAngle = 0;
-        return setInterval(function () {
-            smallAngle += 3;
-            $("#SM_cog").rotate(smallAngle);
-        }, 50);
-    }
+    function spin_large () {
+        spin_small()
+        $('#LG_cog').tween({
+            rotate:{
+                start: 0,
+                stop: -360,
+                time: 0,
+                duration: 10,
+                effect:'easeInOut'
+            }
+        });
+    $.play();
+    };
 
-//    I still can't get the wheel to stop turning but at least they start on hover
     $(".cog-container").hover(
         function() {
-            spin();
+            spin_large();
         },
-        function() {
-//            $("SM_cog").addClass('stop');
-//            $("SM_cog", "LG_cog").rotate({angle:0, callback:function(){ false; }});
-      });
+        function (){
+            return false
+        }
+    );
 
     $( "#flw-res" ).click(function() {
         $( "#flw-res" ).animate({
