@@ -17,7 +17,7 @@ $(document).ready(function (){
                 start: 0,
                 stop: 360,
                 time: 0,
-                duration: 10,
+                duration: 7,
                 effect:'easeInOut'
             }
         });
@@ -31,7 +31,7 @@ $(document).ready(function (){
                 start: 0,
                 stop: -360,
                 time: 0,
-                duration: 10,
+                duration: 7,
                 effect:'easeInOut'
             }
         });
@@ -47,14 +47,26 @@ $(document).ready(function (){
         }
     );
 
-    $( "#flw-res" ).click(function() {
-        $( "#flw-res" ).animate({
-            width: "-toggle",
-            height: "-toggle"
-        }, 2000, function() {
-        // Animation complete.
-        });
+    $(function () {
+
+//        $('.flower-container img:gt(0)').hide();
+
+        setInterval(function(){
+            $('.flower-container :first-child').fadeOut(1500)
+            .next().fadeIn(1500).end().appendTo('.flower-container');
+        }, 3000);
     });
+
+//    $(function (){
+//        if ($("div.branch-container").width() <= 700) {
+//            $("flw0").hide();
+//            $("#flw1").attr({src: "/pictures/flower-resume-color-crop.png"}).css({'href': ''});
+//            $("#flw2").attr({src: "/pictures/flower-biology-color-crop.png"}).css({'position': 'relative'});
+//            $("#flw3").attr({src: "/pictures/flower-code-color-crop.png"}).css({'position': 'relative'});
+//            $("#flw4").attr({src: "/pictures/flower-photography-color-crop.png"}).css({'position': 'relative'});
+//            $("#flw5").attr({src: "/pictures/flower-design-color-crop.png"}).css({'position': 'relative'});
+//        }
+//    });
 
 
     $("#codeguildBW").hover(

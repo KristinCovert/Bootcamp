@@ -45,37 +45,28 @@ body {
     max-width: 600px;
 }
 
-#branch {
+.branch-container {
+    position: relative;
+    min-width: 800px;
+    min-height: 400px;
     max-width: 100%;
     max-height: 100%;
-    position: relative;
-    z-index: 10;
+    margin-left: 22%;
+    text-align: left;
 }
 
-#flw-res {
-    position: relative;
-    z-index: 11;
-}
-#flw-bio {
-    position: relative;
-    z-index: 12;
-}
-#flw-code {
-    position: relative;
-    z-index: 13;
-}
-#flw-photo {
-    position: relative;
-    z-index: 14;
-}
-#flw-des {
-    position: relative;
-    z-index: 15;
+.branch {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    /*z-index: 1;*/
+    opacity: .99;
 }
 
 .float-me {
     max-height: 100%;
     max-width: 100%;
+    position: absolute;
 }
 
 .school-container {
@@ -117,7 +108,14 @@ body {
     border-bottom: 1px solid #000000;
     border-right: none;
     border-left: none;
-}}
+    }
+}
+@media (max-width: 1000px){
+    .branch-container img {
+        max-height: 70%;
+        max-width: 70%;
+    }
+}
 
 /*css for expandable panels*/
 
