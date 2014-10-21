@@ -47,10 +47,10 @@ $(document).ready(function (){
         }
     );
 
+    // this is odd, this function treats the images and anchors as children independent of each other!
+
+
     $(function () {
-
-//        $('.flower-container img:gt(0)').hide();
-
         setInterval(function(){
             $('.flower-container :first-child').fadeOut(1500)
             .next().fadeIn(1500).end().appendTo('.flower-container');
