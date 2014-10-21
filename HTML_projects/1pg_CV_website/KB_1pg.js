@@ -49,6 +49,8 @@ $(document).ready(function (){
 
     // this is odd, this function treats the images and anchors as children independent of each other!
 
+    var check = $(".flower-contianer :first-child")
+        console.log(check)
 
     $(function () {
         setInterval(function(){
